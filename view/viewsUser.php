@@ -60,7 +60,7 @@
                 
                 $user = $pdo->mysql->query("select * from user");
                 
-                foreach ($user as $usser) 
+                foreach ($user as $user) 
                 {
                     echo"<tr>
                             <div>

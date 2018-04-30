@@ -73,7 +73,7 @@
                             <div class='col-sm-3' style='background-color:lavenderblush;'>{$user['Phone']}</div>
                             </div>
                             <div>
-                            <div class='col-sm-3' style='background-color:lavenderblush;'><a href='modificarUsser.php?ID={$user['Id']}'><button class='btn btn-warning'>MODIFICAR</button></a> <a href='eliminarUsser.php?ID={$user['ID']}'><button class='btn btn-danger'>ELIMINAR</button></a></div>
+                            <div class='col-sm-3' style='background-color:lavenderblush;'><a href='updateUser.php?ID={$user['Id']}'><button class='btn btn-warning'>MODIFICAR</button></a> <a href='eliminarUsser.php?ID={$user['ID']}'><button class='btn btn-danger'>ELIMINAR</button></a></div>
                             </div>
                         </tr>";   
                 }

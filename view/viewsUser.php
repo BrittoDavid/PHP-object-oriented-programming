@@ -55,12 +55,12 @@
         <div class= "row">
             <?php
             
-                require("../controllers/Connection.php");
-                $pdo = new db();
+                require("../class/User.php");
+                use clases_pdo\User;
+                $users = new User();
+                $result = $users -> getUsers();
                 
-                $user = $pdo->mysql->query("select * from user");
-                
-                foreach ($user as $usser) 
+                foreach ($result as $user) 
                 {
                     echo"<tr>
                             <div>
@@ -73,7 +73,7 @@
                             <div class='col-sm-3' style='background-color:lavenderblush;'>{$user['Phone']}</div>
                             </div>
                             <div>
-                            <div class='col-sm-3' style='background-color:lavenderblush;'><a href='modificarUsser.php?ID={$user['Id']}'><button class='btn btn-warning'>MODIFICAR</button></a> <a href='eliminarUsser.php?ID={$usser['ID']}'><button class='btn btn-danger'>ELIMINAR</button></a></div>
+                            <div class='col-sm-3' style='background-color:lavenderblush;'><a href='modificarUsser.php?ID={$user['Id']}'><button class='btn btn-warning'>MODIFICAR</button></a> <a href='eliminarUsser.php?ID={$user['ID']}'><button class='btn btn-danger'>ELIMINAR</button></a></div>
                             </div>
                         </tr>";   
                 }

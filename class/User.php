@@ -1,7 +1,7 @@
 <?php
 namespace clases_pdo;
 
-require_once 'Conexion.php';
+require_once 'Connection.php';
 
 class User{
     
@@ -40,7 +40,7 @@ class User{
     public function getUsers()
     {
       $pdo = $this->pdo;
-      $sql = "SELECT * FROM usser";
+      $sql = "SELECT * FROM user";
       $query = $pdo->query($sql);
       $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
       return $queryResult;

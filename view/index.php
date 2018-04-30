@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label class="col-xs-12" for="contra"><h4>Password</h4></label>
                                 <div class="col-xs-10 col-xs-offset-1">
-                                    <input type="text" name="" id="contra" class="form-control formulario_input"/>
+                                    <input type="password" name="" id="contra" class="form-control formulario_input"/>
                                 </div>
                             </div>
                 

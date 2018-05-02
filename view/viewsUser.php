@@ -3,58 +3,22 @@
 
 <head>
     <title>CRUD PDO</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
-<body>
-
-<h1 align="center">Registro</h1>
-
-<div class="container">
-    <form method="post" action="guardarContacto.php">
-         
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="text" id="Nombre" class="form-control" name="nombres" placeholder="Ingrese el nombre de la persona" require="true"/>  
-        </div>
+<body>  
+    <h1>LIST USERS</h1>
         
-        <div>
+        <a href="main.php">back</a>
+        
+        
+        <div class="container">
             
-        </div>
-        
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-            <input type="number" id="tele" name="telefono" class="form-control" placeholder="Digite el telefono (fijo) de la persona" require="true"/>
-        </div>
-        
-        <div>
-            
-        </div>
-        
-        <div>
-            <input type="submit" class="btn btn-info" value="Guardar"/>
-            <input type="reset" class="btn btn-info" value="Cancelar"/>
-        </div>
-        
-    </form>
-</div>
-
-<div class="container-fluid">
-    <table>
-        <div class="row">
-            <tr>
-                <div class="col-sm-3" style="background-color:lavender;">ID</div>
-                <div class="col-sm-3" style="background-color:lavender;">NOMBRE</div>
-                <div class="col-sm-3" style="background-color:lavender;">TELEFONO</div>
-                <div class="col-sm-3" style="background-color:lavender;">OPCIONES</div>
-            </tr>
-        </div>
-        <div>
-            
-        </div>
-        <div class= "row">
-            <?php
-            
+<<<<<<< HEAD
                 require("../controllers/Connection.php");
                 $pdo = new db();
                 
@@ -78,9 +42,45 @@
                         </tr>";   
                 }
             ?>
+=======
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">NOMBRE</th>
+                      <th scope="col">TELEFONO</th>
+                      <th scope="col">USUARIO</th>
+                      <th scope="col">CONTRASEÑA</th>
+                      <th scope="col" colspan="2">OPCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 <?php
+                    
+                        require("../class/User.php");
+                        use clases_pdo\User;
+                        $users = new User();
+                        $result = $users -> getUsers();
+                        
+                        foreach ($result as $user) 
+                        {
+                ?>
+                                        <tr>
+                                              <th scope="row"><?php echo $user['Id']?></th>
+                                              <td><?php echo $user['Name']?></td>
+                                              <td><?php echo $user['Phone']?></td>
+                                              <td><?php echo $user['User']?></td>
+                                              <td><?php echo $user['Password']?></td>
+                                              <td><a href="../controllers/Delete.php?id=<?php echo $user['Id'] ?>" class="btn btn-danger">delete</a></td>
+                                              <td><a href="listusers.php?id=<?php echo $user['Id'] ?>" class="btn btn-success">Update</a></td>
+                                        </tr>
+                            
+                        <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+>>>>>>> view
         </div>
-        
-    </table>
-</div>
 </body>
 </html>

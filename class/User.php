@@ -8,6 +8,8 @@ class User{
     private $id = '';
     private $nombre;
     private $telefono;
+    private $contra;
+    private $usuario;
     private $pdo;
     
     public function __construct(){
@@ -15,10 +17,12 @@ class User{
     }
     
     
-    public function addUser ($nombre, $telefono)
+    public function addUser ($nombre, $telefono,$usuario,$contra)
     {   
         $this->nombre = $nombre;
         $this->telefono = $telefono;
+        $this->usuario = $usuario;
+        $this->contra = $contra;
         $result = $this->saveUser();
         return $result;
     }
@@ -26,16 +30,19 @@ class User{
     private function saveUser()
     {
         $pdo = $this->pdo;
-        $sql = "INSERT INTO usser (ID,NOMBRE,TELEFONO) VALUES (:id,:nombre,:telefono)";
+        $sql = "INSERT INTO user (Id,Name,Phone,User,Password) VALUES (:id,:nombre,:telefono,:usuario,:contra)";
         $query = $pdo->prepare($sql);
         $result = $query->execute([
             'id' => $this->id,
             'nombre' => $this->nombre,
-            'telefono' => $this->telefono
+            'telefono' => $this->telefono,
+            'usuario' => $this->usuario,
+            'contra' => $this->contra
             ]);
             
         return $result;
     }
+    
     
     public function getUsers()
     {
@@ -50,7 +57,7 @@ class User{
     public function deleteUser($id)
     {
         $pdo = $this->pdo;
-        $sql = "DELETE FROM usser WHERE ID=:id";
+        $sql = "DELETE FROM user WHERE Id=:id";
         $query = $pdo->prepare($sql);
         $result = $query->execute([
             'id' => $id

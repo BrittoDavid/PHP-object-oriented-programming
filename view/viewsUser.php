@@ -18,31 +18,6 @@
         
         <div class="container">
             
-<<<<<<< HEAD
-                require("../controllers/Connection.php");
-                $pdo = new db();
-                
-                $user = $pdo->mysql->query("select * from user");
-                
-                foreach ($user as $user) 
-                {
-                    echo"<tr>
-                            <div>
-                                <div class='col-sm-3' style='background-color:lavenderblush;'>{$user['Id']}</div>
-                            </div>
-                            <div>
-                                <div class='col-sm-3' style='background-color:lavenderblush;'>{$user['Name']}</div>
-                            </div>
-                            <div>
-                            <div class='col-sm-3' style='background-color:lavenderblush;'>{$user['Phone']}</div>
-                            </div>
-                            <div>
-                            <div class='col-sm-3' style='background-color:lavenderblush;'><a href='modificarUsser.php?ID={$user['Id']}'><button class='btn btn-warning'>MODIFICAR</button></a> <a href='eliminarUsser.php?ID={$usser['ID']}'><button class='btn btn-danger'>ELIMINAR</button></a></div>
-                            </div>
-                        </tr>";   
-                }
-            ?>
-=======
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>
@@ -71,8 +46,8 @@
                                               <td><?php echo $user['Phone']?></td>
                                               <td><?php echo $user['User']?></td>
                                               <td><?php echo $user['Password']?></td>
-                                              <td><a href="../controllers/Delete.php?id=<?php echo $user['Id'] ?>" class="btn btn-danger">delete</a></td>
-                                              <td><a href="listusers.php?id=<?php echo $user['Id'] ?>" class="btn btn-success">Update</a></td>
+                                              <td><a href="../controllers/Delete.php?Id=<?php echo $user['Id'] ?>" class="btn btn-danger">delete</a></td>
+                                              <td><a href="updateUser.php?Id=<?php echo $user['Id'] ?>" class="btn btn-success">Update</a></td>
                                         </tr>
                             
                         <?php
@@ -80,7 +55,10 @@
                     ?>
                 </tbody>
             </table>
->>>>>>> view
         </div>
+        
+       
+
+
 </body>
 </html>

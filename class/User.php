@@ -71,24 +71,35 @@ class User{
     public function selectUser($id)
     {
         $pdo = $this->pdo;
-        $sql = "SELECT * FROM usser WHERE ID = " . $id;
+        $sql = "SELECT * FROM user WHERE Id =".$id;
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
     }
-    
-    public function updateUser($id,$name,$phone)
+
+    public function updateUser($id, $nombre, $telefono, $usuario, $contra)
     {
         $pdo = $this->pdo;
-        $sql = "UPDATE  usser SET  NOMBRE = :nombre , TELEFONO = :telefono WHERE ID = :id";
+        $sql = "UPDATE user SET Name = :nombre, Phone = :telefono, User = :usuario, Password = :contra WHERE Id = :id";
         $query = $pdo->prepare($sql);
         $result = $query->execute([
             'id' => $id,
-            'nombre' => $name,
-            'telefono' => $phone
+            'nombre' => $nombre,
+            'telefono' => $telefono,
+            'usuario' => $usuario,
+            'contra' => $contra
             ]);
             
         return $result;
+    }
+    
+    public function selectVali($usuario)
+    {
+        $pdo = $this->pdo;
+        $sql = "SELECT * FROM user WHERE User = ".$usuario;
+        $query = $pdo->query($sql);
+        $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $queryResult;
     }
 }
 

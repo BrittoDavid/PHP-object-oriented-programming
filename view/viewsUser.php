@@ -9,24 +9,53 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" />
 </head>
-<body>  
-    <h1>LIST USERS</h1>
+<body> 
+
+   <!--head-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         
-        <a href="main.php">back</a>
+        <a class="navbar-brand" href="main.php"><hi>PDO EXAMPLE</hi></a>
         
-        
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          
+          <ul class="navbar-nav mr-auto">
+              
+            <li class="nav-item active">
+              <a class="nav-link" href="main.php">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="viewsUser.php">To list</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="addUser.php">Create User</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sign out</a>
+            </li>
+            
+          </ul>
+          
+        </div>
+      </nav>
+      
+    <h1 align="center">LIST USERS</h1>
+
         <div class="container">
             
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>
                       <th scope="col">ID</th>
-                      <th scope="col">NOMBRE</th>
-                      <th scope="col">TELEFONO</th>
-                      <th scope="col">USUARIO</th>
-                      <th scope="col">CONTRASEÑA</th>
-                      <th scope="col" colspan="2">OPCIONES</th>
+                      <th scope="col">NAME</th>
+                      <th scope="col">PHONE</th>
+                      <th scope="col">USER</th>
+                      <th scope="col">PASSWORD</th>
+                      <th scope="col" colspan="2">OPTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,8 +86,7 @@
             </table>
         </div>
         
-       
-
-
+        <a class="navbar-brand" href="main.php"><buttom class='btn btn-info'>back</buttom></a>
+    
 </body>
 </html>

@@ -1,7 +1,12 @@
 <?php
-  
+    session_start();
     require_once '../class/User.php';
     use clases_pdo\User;
+    
+    if (!isset($_SESSION["Name"])) {
+    header("Location:index.php?c4=error");
+} else {
+  
     $users = new User();
     $id = $_GET['Id'];
     $result = $users->selectUser($id);
@@ -25,7 +30,7 @@
     <!--head-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         
-        <a class="navbar-brand" href="main.php"><hi>PDO EXAMPLE</hi></a>
+        <a class="navbar-brand" href="main.php"><hi><?php echo $_SESSION["Name"]; ?></hi></a>
         
         <div class="collapse navbar-collapse" id="navbarColor02">
           
@@ -44,7 +49,7 @@
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign out</a>
+              <a class="nav-link" href="../controllers/DestroySession.php">Sign out</a>
             </li>
             
           </ul>
@@ -123,3 +128,7 @@
     ?>
 </body>
 <html>
+  
+<?php
+}
+?>

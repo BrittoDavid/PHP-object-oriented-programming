@@ -96,10 +96,14 @@ class User{
     public function selectVali($usuario)
     {
         $pdo = $this->pdo;
-        $sql = "SELECT * FROM user WHERE User = ".$usuario;
-        $query = $pdo->query($sql);
-        $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
-        return $queryResult;
+        $sql = "SELECT * FROM user WHERE User = :usuario";
+        $prepare = $pdo->prepare($sql);
+        $resultQuery= $prepare->execute([
+            'usuario' => $usuario
+            ]);
+        $result = $prepare->fetch(\PDO::FETCH_ASSOC);
+        
+        return $result;
     }
 }
 

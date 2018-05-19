@@ -7,6 +7,8 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../css/alertify.css">
+    <script type="text/javascript" src="../javascript/alertify.js"></script>
     <title>PDO BRITTO</title>
 </head>
 <body>
@@ -25,7 +27,7 @@
         <div class="row">
             <fieldset class="col-xs-10 col-xs-offset-1">
                 <legend class="hidden-xs"><h3>Inicio de Sesìon</h3></legend>
-                
+                <!-- <h3><small>Juan David</small></h3>-->
                 <form class="form horinzotal" method="post" action="../controllers/Validator.php">
                     
                     <div class="form-group">
@@ -53,7 +55,17 @@
     
     <?php 
         
-        if (isset($_GET['c1'])) {
+        if (isset($_GET['c1'])) 
+        {
+            ?>
+            <script>
+                alert("Los campos no han sido declarados");
+            </script>    
+            <?php
+        }
+        
+        if (isset($_GET['c2'])) 
+        {
             ?>
             <script>
                 alert("Los campos no pueden estar vacios, por favor verifique nuevamente");
@@ -61,6 +73,32 @@
             <?php
         }
         
+        if (isset($_GET['c3']))
+        {
+            ?>
+            <script>
+                alert("Campos incorrectos, por favor vuelva a intentar");
+            </script>
+            <?php
+        }
+        
+        if (isset($_GET['c4']))
+        {
+            ?>
+            <script>
+                alert("Usted no tiene autorizacion, para entrar a este sitio wed");
+            </script>    
+            <?php
+        }
+        
+        if (isset($_GET['c5'])) 
+        {
+            ?>
+            <script>
+                alert("La session ha sido cerrada con exito");
+            </script>    
+            <?php
+        }
     ?>
 </body>
 </html>
